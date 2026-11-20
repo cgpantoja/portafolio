@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Identidad Peak con montañas geométricas en negro, lima, rosa y naranja">
+  <defs>
+    <pattern id="peakGrid" width="75" height="75" patternUnits="userSpaceOnUse">
+      <path d="M75 0H0V75" fill="none" stroke="#141414" stroke-opacity=".11" stroke-width="2"/>
+    </pattern>
+    <clipPath id="peakClip">
+      <path d="M80 700 372 286l164 214 118-146 226 346Z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="#f4f1e8"/>
+  <rect width="1200" height="900" fill="url(#peakGrid)"/>
+
+  <circle cx="846" cy="294" r="218" fill="#fa51a2" stroke="#141414" stroke-width="7"/>
+  <path d="M80 700 372 286l164 214 118-146 226 346Z" fill="#141414"/>
+
+  <g clip-path="url(#peakClip)">
+    <path d="M80 700 372 286 536 500 654 354 880 700Z" fill="none" stroke="#bdf522" stroke-width="7"/>
+    <path d="M268 700 372 286l92 382Z" fill="#7b46f8" fill-opacity=".55"/>
+    <path d="M372 286 456 470l-84 34-62-72Z" fill="#bdf522" stroke="#141414" stroke-width="5"/>
+  </g>
+
+  <g fill="none" stroke="#141414" stroke-width="3" stroke-opacity=".42">
+    <path d="M80 760h1040M80 812h840M80 864h640"/>
+  </g>
+
+  <rect x="0" y="700" width="1200" height="200" fill="#bdf522"/>
+  <rect x="0" y="700" width="1200" height="12" fill="#141414"/>
+
+  <text x="56" y="872" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="232" letter-spacing="-14" fill="#141414">PEAK</text>
+
+  <path d="M96 130h320M96 168h210" stroke="#141414" stroke-width="6" stroke-linecap="round" stroke-opacity=".72"/>
+  <text x="96" y="248" font-family="'Space Mono', monospace" font-size="20" letter-spacing="8" fill="#141414" fill-opacity=".8">PEAK / OUTDOOR CLUB</text>
+
+  <path d="M1052 126l42 42-42 42-42-42Z" fill="#fe8616" stroke="#141414" stroke-width="4"/>
+  <circle cx="1120" cy="262" r="22" fill="#7b46f8"/>
+  <circle cx="1120" cy="262" r="8" fill="#f4f1e8"/>
+
+  <text x="1028" y="660" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="52" fill="#141414">05</text>
+  <path d="M112 610l17 34 37-12-26 29 29 26-39-3-9 37-14-35-38 12 26-30-29-26 39 3z" fill="#fa51a2" stroke="#141414" stroke-width="4"/>
+</svg>

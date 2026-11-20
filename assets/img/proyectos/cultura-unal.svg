@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Sistema de identidad Cultura UNAL en crema, rosa, lima y negro">
+  <defs>
+    <pattern id="umbralGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#141414" stroke-opacity=".11" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#f4f1e8"/>
+  <rect width="1200" height="900" fill="url(#umbralGrid)"/>
+
+  <circle cx="810" cy="260" r="246" fill="#fa51a2" stroke="#141414" stroke-width="7"/>
+  <path d="M120 790V500a220 220 0 0 1 440 0v290Z" fill="#141414"/>
+  <circle cx="340" cy="604" r="88" fill="#f4f1e8"/>
+  <path d="M300 528h80M300 556h80" stroke="#141414" stroke-width="9" stroke-linecap="round"/>
+
+  <rect x="676" y="634" width="404" height="22" fill="#141414"/>
+  <rect x="676" y="684" width="304" height="22" fill="#141414"/>
+  <rect x="676" y="734" width="204" height="22" fill="#141414"/>
+  <rect x="1000" y="142" width="78" height="78" fill="#bdf522" stroke="#141414" stroke-width="5" transform="rotate(45 1039 181)"/>
+  <circle cx="640" cy="780" r="15" fill="#7b46f8"/>
+  <rect x="0" y="0" width="1200" height="26" fill="#bdf522"/>
+  <rect x="1080" y="600" width="80" height="180" fill="#fe8616" stroke="#141414" stroke-width="5"/>
+
+  <text x="118" y="150" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="66" fill="#141414">03</text>
+  <text x="1140" y="828" text-anchor="end" font-family="'Space Mono', monospace" font-size="16" letter-spacing="5" fill="#141414" fill-opacity=".6">CULTURA UNAL</text>
+</svg>

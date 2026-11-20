@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Lámina de Artropomakia con un artrópodo imaginario en negro, lima y rosa">
+  <defs>
+    <pattern id="herbarioGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#f4f1e8" stroke-opacity=".1" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#141414"/>
+  <rect width="1200" height="900" fill="url(#herbarioGrid)"/>
+
+  <g fill="none" stroke="#f4f1e8" stroke-width="2" stroke-opacity=".2">
+    <path d="M0 200h1200M0 450h1200M0 700h1200"/>
+    <path d="M300 0v900M600 0v900M900 0v900"/>
+  </g>
+
+  <g fill="none" stroke="#bdf522" stroke-width="5" stroke-linecap="round">
+    <path d="M600 800V250"/>
+    <path d="M600 620C470 610 420 520 430 430c120 10 180 90 170 190Z"/>
+    <path d="M600 520c130-8 178-92 168-180-118 8-178 86-168 180Z"/>
+    <path d="M600 340c-78-12-112-70-108-132 80 12 118 62 108 132Z"/>
+    <path d="M600 720c86-8 128-58 126-122-82 6-126 52-126 122Z"/>
+  </g>
+
+  <g fill="#bdf522" fill-opacity=".95">
+    <path d="M600 620C470 610 420 520 430 430c120 10 180 90 170 190Z"/>
+    <path d="M600 520c130-8 178-92 168-180-118 8-178 86-168 180Z"/>
+    <path d="M600 340c-78-12-112-70-108-132 80 12 118 62 108 132Z"/>
+  </g>
+
+  <circle cx="600" cy="250" r="26" fill="#fa51a2" stroke="#141414" stroke-width="4"/>
+  <circle cx="742" cy="380" r="14" fill="#fe8616"/>
+  <circle cx="452" cy="470" r="11" fill="#7b46f8"/>
+  <circle cx="860" cy="640" r="54" fill="none" stroke="#7b46f8" stroke-width="6"/>
+  <circle cx="860" cy="640" r="20" fill="#fa51a2"/>
+
+  <g fill="none" stroke="#bdf522" stroke-width="4" stroke-linecap="round" stroke-opacity=".85">
+    <path d="M600 250 520 140M600 250 680 140"/>
+    <path d="M430 430 300 380 260 300M430 430 280 470 220 450"/>
+    <path d="M770 430 900 380 940 300M770 430 920 470 980 450"/>
+    <path d="M600 720 500 810 420 820M600 720 700 810 780 820"/>
+  </g>
+  <circle cx="520" cy="140" r="13" fill="#fa51a2"/>
+  <circle cx="680" cy="140" r="13" fill="#fa51a2"/>
+
+  <path d="M250 800h700" stroke="#f4f1e8" stroke-width="2" stroke-opacity=".6"/>
+  <text x="96" y="112" font-family="'Space Mono', monospace" font-size="18" letter-spacing="7" fill="#f4f1e8" fill-opacity=".8">ARTROPOMAKIA / LÁMINA 06</text>
+  <text x="1000" y="828" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="44" fill="#bdf522">06</text>
+</svg>

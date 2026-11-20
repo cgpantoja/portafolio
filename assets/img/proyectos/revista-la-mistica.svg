@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Portada de la Revista La Mística con letras Aa, círculo lima y formas editoriales">
+  <defs>
+    <pattern id="paginaGrid" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M70 0H0V70" fill="none" stroke="#141414" stroke-opacity=".1" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="900" fill="#f4f1e8"/>
+  <rect width="1200" height="900" fill="url(#paginaGrid)"/>
+
+  <circle cx="880" cy="318" r="218" fill="#bdf522" stroke="#141414" stroke-width="7"/>
+  <text x="60" y="660" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="530" letter-spacing="-40" fill="#141414">Aa</text>
+  <rect x="720" y="600" width="376" height="4" fill="#141414"/>
+  <rect x="720" y="634" width="300" height="4" fill="#141414"/>
+  <rect x="720" y="668" width="340" height="4" fill="#141414"/>
+  <rect x="720" y="702" width="246" height="4" fill="#141414"/>
+  <path d="M90 720h430" stroke="#fa51a2" stroke-width="16"/>
+  <path d="M90 762h260" stroke="#141414" stroke-width="16"/>
+  <rect x="960" y="600" width="150" height="150" fill="#7b46f8" stroke="#141414" stroke-width="5" transform="rotate(-8 1035 675)"/>
+  <text x="1040" y="120" font-family="'Archivo Black', 'Arial Black', sans-serif" font-size="52" fill="#141414">01</text>
+  <text x="746" y="790" font-family="'Space Mono', monospace" font-size="17" letter-spacing="5" fill="#141414" fill-opacity=".6">REVISTA LA MÍSTICA / Nº 01</text>
+</svg>
