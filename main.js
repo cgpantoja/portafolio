@@ -172,10 +172,10 @@
      ------------------------------------------------------- */
 
   const skipIntroParam = new URLSearchParams(window.location.search).get('intro') === '0';
-  let introSeen = false;
-  try { introSeen = sessionStorage.getItem('caro-creativa-intro') === '1'; } catch (e) {}
 
-  if (!stage || skipIntroParam || reduceMotion || introSeen) {
+  // La intro se repite en cada carga de la portada (solo se omite con
+  // ?intro=0 o si el sistema pide movimiento reducido).
+  if (!stage || skipIntroParam || reduceMotion) {
     if (stage) stage.remove();
     start();
   } else {
@@ -249,8 +249,6 @@
     function finishIntro() {
       if (introDone) return;
       introDone = true;
-
-      try { sessionStorage.setItem('caro-creativa-intro', '1'); } catch (e) {}
 
       window.removeEventListener('wheel', onWheel);
       window.removeEventListener('keydown', onKey);
