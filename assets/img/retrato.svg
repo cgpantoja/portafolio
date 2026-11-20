@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="Retrato ilustrado de Carolina">
+  <defs>
+    <pattern id="retratoGrid" width="75" height="75" patternUnits="userSpaceOnUse">
+      <path d="M75 0H0V75" fill="none" stroke="#141414" stroke-opacity=".16" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="1100" fill="#fa51a2"/>
+  <rect width="900" height="1100" fill="url(#retratoGrid)"/>
+
+  <circle cx="450" cy="430" r="250" fill="none" stroke="#141414" stroke-width="4" stroke-opacity=".38"/>
+  <path d="M190 1030V600a260 260 0 0 1 520 0v430Z" fill="#f4f1e8" stroke="#141414" stroke-width="7"/>
+  <circle cx="450" cy="470" r="168" fill="#141414"/>
+  <path d="M250 1030c0-152 90-262 200-262s200 110 200 262Z" fill="#141414"/>
+  <circle cx="450" cy="470" r="206" fill="none" stroke="#141414" stroke-width="3" stroke-opacity=".4"/>
+
+  <path d="M152 128l30 60 65-20-45 50 50 45-70-5-15 65-25-62-65 20 44-52-50-44 68 6z" fill="#bdf522" stroke="#141414" stroke-width="5"/>
+  <rect x="668" y="150" width="72" height="72" fill="#7b46f8" stroke="#141414" stroke-width="5" transform="rotate(12 704 186)"/>
+  <path d="M110 200h120M110 232h78" stroke="#141414" stroke-width="8" stroke-linecap="round" stroke-opacity=".6"/>
+  <path d="M690 760h96" stroke="#fe8616" stroke-width="12" stroke-linecap="round"/>
+
+  <circle cx="770" cy="900" r="9" fill="#141414"/>
+  <circle cx="790" cy="900" r="9" fill="#141414" fill-opacity=".4"/>
+  <circle cx="810" cy="900" r="9" fill="#141414" fill-opacity=".18"/>
+
+  <text x="90" y="1062" font-family="'Space Mono', monospace" font-size="26" letter-spacing="3" fill="#141414">retrato / 2026</text>
+</svg>
