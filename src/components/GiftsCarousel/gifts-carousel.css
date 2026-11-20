@@ -1,0 +1,301 @@
+/* =========================================================
+   GiftsCarousel — galería de proyectos
+   Hélice de ADN en 3D, a todo el ancho de la sección.
+   ========================================================= */
+
+.gifts {
+  --gift-card-w: clamp(202px, 19.3vw, 294px);
+  --gift-card-h: calc(var(--gift-card-w) * 1.32);
+  --gift-stage-h: clamp(478px, 42.3vw, 626px);
+  --gift-radius: 17px;
+
+  width: 100%;
+  margin: 0 0 clamp(38px, 5vw, 60px);
+}
+
+/* --- Escenario --- */
+
+.gifts__orbit {
+  width: 100%;
+  min-width: 0;
+}
+
+.gifts-carousel {
+  position: relative;
+  width: 100%;
+  height: var(--gift-stage-h);
+  perspective: var(--gift-perspective, 1180px);
+  perspective-origin: 50% 50%;
+  overflow: hidden;
+  outline: none;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  contain: layout paint;
+}
+
+.gifts-carousel.is-dragging {
+  cursor: grabbing;
+}
+
+.gifts-carousel:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+.gifts-carousel__stage {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.gifts__fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  padding: 26px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* --- Fichas --- */
+
+.gift-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: var(--gift-card-w);
+  height: var(--gift-card-h);
+  margin: calc(var(--gift-card-h) / -2) 0 0 calc(var(--gift-card-w) / -2);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  will-change: transform, opacity;
+  pointer-events: auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transform: translate3d(0, 0, 0);
+  opacity: 0;
+}
+
+.gift-card__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 2px solid var(--ink);
+  border-radius: var(--gift-radius);
+  background: var(--paper-2);
+  transform: translateZ(0);
+}
+
+.gift-card__frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.gift-card__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 4.6px;
+  padding: clamp(11px, 1.47vw, 18px);
+  background: linear-gradient(180deg, transparent 38%, rgba(20, 20, 20, 0.22) 58%, rgba(20, 20, 20, 0.9) 100%);
+  color: var(--cream);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s var(--ease), transform 0.28s var(--ease);
+  pointer-events: none;
+}
+
+.gift-card__category {
+  font-family: var(--font-mono);
+  font-size: clamp(0.46rem, 0.51vw, 0.57rem);
+  line-height: 1.3;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lime);
+}
+
+.gift-card__title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(0.92rem, 1.38vw, 1.43rem);
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  color: var(--cream);
+}
+
+.gift-card__cta {
+  margin-top: 4.6px;
+  padding: 0.44em 0.66em;
+  background: var(--lime);
+  color: var(--black);
+  border-radius: 6px;
+  box-shadow: 2px 2px 0 var(--black);
+  font-family: var(--font-mono);
+  font-size: clamp(0.44rem, 0.5vw, 0.55rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gift-card:hover {
+  z-index: 200 !important;
+  opacity: 1 !important;
+}
+
+.gift-card:hover .gift-card__frame,
+.gift-card:focus-visible .gift-card__frame {
+  filter: none !important;
+}
+
+.gift-card:hover .gift-card__overlay,
+.gift-card:focus-visible .gift-card__overlay {
+  opacity: 1;
+  transform: none;
+}
+
+.gift-card:focus-visible {
+  outline: none;
+}
+
+.gift-card:focus-visible .gift-card__frame {
+  outline: 3px solid var(--violet);
+  outline-offset: 4px;
+}
+
+.gift-card[data-active="true"] .gift-card__frame {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--lime) 26%, transparent);
+}
+
+/* --- Controles --- */
+
+.gifts-carousel__bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.gifts-carousel__count {
+  margin: 0 auto 0 0;
+  font-family: var(--font-mono);
+  font-size: clamp(0.58rem, 0.6vw, 0.66rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.gifts-carousel__nav {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.gifts-carousel__nav button {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--lime);
+  color: var(--black);
+  box-shadow: 3px 3px 0 var(--black);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.gifts-carousel__nav button:hover {
+  background: var(--pink);
+  box-shadow: 4px 4px 0 var(--black);
+  transform: translate(-1px, -1px);
+}
+
+.gifts-carousel__nav button:active {
+  box-shadow: 1px 1px 0 var(--black);
+  transform: translate(2px, 2px);
+}
+
+.gifts-carousel__nav button:focus-visible {
+  outline: 3px solid var(--violet);
+  outline-offset: 3px;
+}
+
+/* --- Responsive --- */
+
+@media (max-width: 720px) {
+  .gifts {
+    --gift-card-w: clamp(143px, 38.6vw, 193px);
+    --gift-stage-h: clamp(368px, 99.4vw, 460px);
+  }
+}
+
+@media (max-width: 400px) {
+  .gifts {
+    --gift-card-w: 145px;
+    --gift-stage-h: 377px;
+  }
+
+  .gifts-carousel__nav button {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* --- Táctil: la tarjeta activa muestra su ficha --- */
+
+@media (hover: none) {
+  .gift-card[data-active="true"] .gift-card__overlay {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Movimiento reducido --- */
+
+@media (prefers-reduced-motion: reduce) {
+  .gifts-carousel {
+    cursor: default;
+  }
+
+  .gifts-carousel__nav button,
+  .gift-card__overlay {
+    transition: none;
+  }
+}
+

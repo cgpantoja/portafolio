@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="day">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caro Creativa — Diseño gráfico</title>
+  <meta name="description" content="Portafolio de Carolina, estudiante de Diseño Gráfico en la Universidad Nacional de Colombia. Identidad visual, diseño editorial, ilustración y diseño digital.">
+  <meta name="theme-color" content="#f4f1e8">
+
+  <meta property="og:title" content="Caro Creativa — Diseño gráfico">
+  <meta property="og:description" content="Identidad visual, editorial y diseño digital. Estudiante de Diseño Gráfico, Universidad Nacional de Colombia.">
+  <meta property="og:type" content="website">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    try {
+      var tema = localStorage.getItem('tema');
+      if (tema === 'night' || tema === 'day') document.documentElement.dataset.theme = tema;
+    } catch (e) {}
+    document.documentElement.classList.add('js');
+  </script>
+
+  <link rel="stylesheet" href="styles.css?v=39">
+  <link rel="stylesheet" href="src/components/ReviewDrawer/ReviewDrawer.css?v=14">
+  <link rel="stylesheet" href="src/components/GiftsCarousel/gifts-carousel.css?v=11">
+  <script src="src/data/proyectos.js?v=84" defer></script>
+  <script src="src/components/ReviewDrawer/ReviewDrawer.js?v=16" defer></script>
+  <script src="src/components/GiftsCarousel/gifts-carousel.js?v=15" defer></script>
+  <script src="main.js?v=15" defer></script>
+</head>
+<body class="is-loading">
+
+  <a class="skip-link" href="#quien-soy">Saltar al contenido</a>
+
+  <!-- Intro: estrella recortada que explota con el scroll -->
+  <div class="star-stage" id="star-stage" role="region" aria-label="Introducción animada">
+    <div class="star-stage__bg" aria-hidden="true"></div>
+    <div class="star-stage__flash" aria-hidden="true"></div>
+
+    <div class="star-stage__scale" id="star-scale">
+      <div class="star-stage__collage" aria-hidden="true">
+        <img class="star-layer star-layer--pink" src="assets/img/star-pink.svg" alt="" width="800" height="800" data-dx="-130" data-dy="-80" data-rot="-42">
+        <img class="star-layer star-layer--lime" src="assets/img/star-lime.svg" alt="" width="800" height="800" data-dx="155" data-dy="-150" data-rot="56">
+        <img class="star-layer star-layer--black" src="assets/img/star-black.svg" alt="" width="800" height="800" data-dx="-45" data-dy="70" data-rot="120">
+        <img class="star-layer star-layer--violet" src="assets/img/star-violet.svg" alt="" width="800" height="800" data-dx="-95" data-dy="145" data-rot="-58">
+        <img class="star-layer star-layer--orange" src="assets/img/star-orange.svg" alt="" width="800" height="800" data-dx="145" data-dy="125" data-rot="44">
+        <img class="star-layer star-layer--purple" src="assets/img/star-purple.svg" alt="" width="800" height="800" data-dx="95" data-dy="-115" data-rot="72">
+      </div>
+    </div>
+
+    <p class="star-stage__hint" aria-hidden="true">
+      <span>scroll</span>
+      <span class="star-stage__arrow">↓</span>
+      <span>hazla explotar</span>
+    </p>
+
+    <p class="sr-only">Desplázate hacia abajo para hacer explotar la estrella y entrar al portafolio. También puedes usar el botón «Saltar intro».</p>
+
+    <button class="star-stage__skip" id="star-skip" type="button" data-cursor="saltar">saltar intro</button>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cutout-bg" aria-hidden="true">
+    <span class="cutout cutout--star cutout--star-1"></span>
+    <span class="cutout cutout--star cutout--star-2"></span>
+    <span class="cutout cutout--star cutout--star-3"></span>
+    <span class="cutout cutout--circle cutout--circle-1"></span>
+    <span class="cutout cutout--circle cutout--circle-2"></span>
+    <span class="cutout cutout--circle cutout--circle-3"></span>
+    <span class="cutout cutout--line cutout--line-1"></span>
+    <span class="cutout cutout--line cutout--line-2"></span>
+    <span class="cutout cutout--line cutout--line-3"></span>
+  </div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"><span class="cursor__label"></span></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <!-- Navegación GLASS -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#inicio" aria-label="Caro Creativa, ir al inicio">
+      <span class="brand__name">Caro Creativa</span>
+    </a>
+
+    <nav class="nav__links" id="menu" aria-label="Navegación principal">
+      <a href="#quien-soy"><span class="nav__num">01</span> Conóceme ;)</a>
+      <a href="#trabajos"><span class="nav__num">02</span> Casos</a>
+      <a href="#reviews"><span class="nav__num">03</span> Reviews</a>
+      <a href="#contacto"><span class="nav__num">04</span> ¡Hablemos!</a>
+    </nav>
+
+    <div class="nav__actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar a tema noche" aria-pressed="false">
+        <svg class="icon icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"/>
+          <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/>
+        </svg>
+        <svg class="icon icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/>
+        </svg>
+      </button>
+
+      <button class="nav__toggle" id="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <!-- HERO + QUIÉN SOY FUSIONADOS -->
+    <section class="hero" id="quien-soy" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__grid"></span>
+        <span class="shape shape--stripes"></span>
+        <span class="shape shape--star"></span>
+      </div>
+
+      <div class="hero__copy hero__copy--top">
+        <div class="hero__top">
+          <p class="eyebrow" data-reveal>
+            <span class="pulse" aria-hidden="true"></span>
+            Disponible para prácticas · Bogotá D.C
+          </p>
+          <p class="hero__coord" data-reveal>Universidad Nacional de Colombia · 2027</p>
+        </div>
+
+          <div class="hero__intro" data-reveal>
+            <p class="hero__quieres" aria-hidden="true">
+              <span><em>¿</em> quieres</span>
+              <span>algo distinto <em>?</em></span>
+            </p>
+            <p class="sr-only">¿Quieres algo distinto?</p>
+            <ul class="hero__servicios" aria-label="Servicios">
+              <li>Diseño UI/UX</li>
+              <li>Editorial</li>
+              <li>Social Media</li>
+              <li>Ilustración</li>
+            </ul>
+          </div>
+
+          <h1 class="hero__title" id="hero-title">
+          <span class="sr-only">Caro Creativa</span>
+          <span class="hero__boxes" aria-hidden="true" data-cursor>
+            <span class="hero__line hero__line--1">
+              <span class="box" data-char="C" data-index="0"><span class="box__char">C</span></span>
+              <span class="box" data-char="a" data-index="1"><span class="box__char">a</span></span>
+              <span class="box" data-char="r" data-index="2"><span class="box__char">r</span></span>
+              <span class="box" data-char="o" data-index="3"><span class="box__char">o</span></span>
+            </span>
+            <span class="hero__line hero__line--2">
+              <span class="box" data-char="C" data-index="4"><span class="box__char">C</span></span>
+              <span class="box" data-char="r" data-index="5"><span class="box__char">r</span></span>
+              <span class="box" data-char="e" data-index="6"><span class="box__char">e</span></span>
+              <span class="box" data-char="a" data-index="7"><span class="box__char">a</span></span>
+              <span class="box" data-char="t" data-index="8"><span class="box__char">t</span></span>
+              <span class="box" data-char="i" data-index="9"><span class="box__char">i</span></span>
+              <span class="box" data-char="v" data-index="10"><span class="box__char">v</span></span>
+              <span class="box" data-char="a" data-index="11"><span class="box__char">a</span></span>
+            </span>
+          </span>
+        </h1>
+
+        <p class="hero__sub" data-split data-split-delay="1280">diseño gráfico <em data-cursor>con intención</em></p>
+
+      </div>
+
+      <div class="hero__copy hero__copy--bot">
+        <div class="hero__row">
+          <p class="hero__lead" data-reveal>
+            ¡Hola! Soy una diseñadora gráfica ideal para quienes quieren trabajar
+            con nuevas ideas. Me gusta ayudar a formar ideas y proyectos creativos,
+            así como ejecutarlos. ¡Llegar a consensos, trabajar en equipo y una
+            buena comunicación son esenciales!
+          </p>
+        </div>
+
+        <div class="hero__stack" data-reveal>
+          <div class="hero__stack-group">
+            <p class="hero__stack-label">Herramientas</p>
+            <div class="hero__logos" role="list" aria-label="Herramientas">
+              <span class="hero__logo" role="listitem" title="Illustrator — 5/5"><img src="assets/img/logos/illustrator.svg" alt="Adobe Illustrator" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="5 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                  </span></span>
+              <span class="hero__logo" role="listitem" title="Photoshop — 4.5/5"><img src="assets/img/logos/photoshop.svg" alt="Adobe Photoshop" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="4.5 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart half" width="12" height="12" loading="lazy">
+                  </span></span>
+              <span class="hero__logo" role="listitem" title="Figma — 4/5"><img src="assets/img/logos/figma.svg" alt="Figma" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="4 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart empty" width="12" height="12" loading="lazy">
+                  </span></span>
+              <span class="hero__logo" role="listitem" title="DaVinci — 4/5"><img src="assets/img/logos/davinci.svg" alt="DaVinci Resolve" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="4 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart empty" width="12" height="12" loading="lazy">
+                  </span></span>
+              <span class="hero__logo" role="listitem" title="After Effects — 4/5"><img src="assets/img/logos/aftereffects.svg" alt="Adobe After Effects" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="4 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart empty" width="12" height="12" loading="lazy">
+                  </span></span>
+              <span class="hero__logo" role="listitem" title="InDesign — 4.5/5"><img src="assets/img/logos/indesign.svg" alt="Adobe InDesign" loading="lazy" width="48" height="48"><span class="hero__hearts" aria-label="4.5 de 5">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart filled" width="12" height="12" loading="lazy">
+                    <img src="assets/img/logos/heart.svg" alt="" class="heart half" width="12" height="12" loading="lazy">
+                  </span></span>
+            </div>
+          </div>
+          <div class="hero__stack-group hero__stack-group--ai">
+            <p class="hero__stack-label">Experiencias apoyadas con:</p>
+            <div class="hero__logos hero__logos--ai" role="list" aria-label="Experiencias apoyadas con IA">
+              <span class="hero__logo" role="listitem" title="DeepSeek"><img src="assets/img/logos/deepseek.svg" alt="DeepSeek" loading="lazy" width="96" height="96"></span>
+              <span class="hero__logo" role="listitem" title="ChatGPT"><img src="assets/img/logos/chatgpt.svg" alt="ChatGPT" loading="lazy" width="96" height="96"></span>
+              <span class="hero__logo" role="listitem" title="Claude"><img src="assets/img/logos/claude.svg" alt="Claude" loading="lazy" width="96" height="96"></span>
+              <span class="hero__logo" role="listitem" title="Google AI Studio"><img src="assets/img/logos/google-ai.svg" alt="Google AI Studio" loading="lazy" width="96" height="96"></span>
+            </div>
+          </div>
+        </div>
+
+          <div class="hero__foot" data-reveal>
+            <div class="hero__foot-col hero__foot-col--loc">
+              <p>Colombia</p>
+              <p>Bogotá</p>
+              <p><time id="clock-hero">--:--</time> CST</p>
+            </div>
+            <div class="hero__foot-col hero__foot-col--lema">
+              <p>Trabajando para ver los problemas de otro modo…</p>
+              <p>Amo las burbujas… y amaré trabajar contigo <em>;)</em></p>
+            </div>
+            <div class="hero__foot-col hero__foot-col--contact">
+              <p><a href="mailto:cgpantoja02@gmail.com">cgpantoja02@gmail.com</a></p>
+              <p>UNAL · Diseño Gráfico</p>
+            </div>
+          </div>
+        </div>
+
+      <div class="hero__visual" data-reveal data-tilt-zone>
+                <figure class="portrait-frame portrait-frame--3q" data-cursor aria-label="Retrato de Carolina en portaretrato 3D visto en 3/4">
+          <div class="frame__depth" aria-hidden="true"></div>
+          <div class="frame__side frame__side--left" aria-hidden="true"></div>
+          <div class="frame__side frame__side--bottom" aria-hidden="true"></div>
+          <div class="frame__border">
+            <div class="frame__inner">
+              <img src="assets/img/retrato.jpg" alt="Retrato de Carolina" width="800" height="1000" loading="eager" decoding="async">
+            </div>
+          </div>
+          <figcaption class="frame__caption">Carolina · Bogotá, 2026</figcaption>
+          <div class="frame__shadow" aria-hidden="true"></div>
+        </figure>
+
+        <div class="hero__actions hero__actions--under-frame" data-reveal>
+          <a class="btn btn--solid" href="#trabajos" data-magnetic data-cursor="ir">
+            Ver casos <span class="arrow" aria-hidden="true">↘</span>
+          </a>
+          <a class="btn btn--ghost" href="#contacto" data-magnetic data-cursor="hola">
+            ¡Trabajemos juntos!
+          </a>
+        </div>
+
+        <div class="badge-spin" aria-hidden="true">
+          <svg viewBox="0 0 200 200">
+            <defs>
+              <path id="badgePath" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/>
+            </defs>
+            <text>
+              <textPath href="#badgePath">abierta a prácticas · diseño gráfico · unal · </textPath>
+            </text>
+          </svg>
+          <span class="badge-spin__star">✳</span>
+        </div>
+
+        <div class="sticker" aria-hidden="true">
+          <span>de</span>
+          <strong>Cúcuta</strong>
+          <em>pal mundo</em>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#trabajos" aria-label="Bajar a casos">
+        <span>scroll</span>
+        <span class="scroll-cue__line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- TRABAJOS -->
+    <section class="section work" id="trabajos" aria-labelledby="work-title">
+      <header class="section__head work__head">
+        <p class="label" data-reveal><span>02</span> Casos</p>
+        <div class="work__headline">
+          <h2 class="section__title" id="work-title" data-split>
+            Selección de <em data-cursor>proyectos</em>
+          </h2>
+          <p data-reveal>
+            Una mezcla de trabajos de clase, encargos y experimentos personales.
+            Abre cualquiera para ver el proceso, el rol y las herramientas.
+          </p>
+        </div>
+      </header>
+
+      <!-- Proyectos: carrusel 3D en forma de hélice de ADN -->
+      <div class="gifts">
+        <div class="gifts__orbit">
+          <div class="gifts-carousel" data-gifts tabindex="0" role="region"
+               aria-roledescription="carrusel"
+               aria-label="Proyectos: galería 3D de enlaces a cada proyecto">
+            <div class="gifts-carousel__stage" data-gifts-stage></div>
+            <noscript>
+              <p class="gifts__fallback">Activa JavaScript para ver el carrusel. También puedes abrir cada proyecto desde la carpeta <code>proyectos/</code>.</p>
+            </noscript>
+            <p class="gifts-carousel__live sr-only" data-gifts-live aria-live="polite"></p>
+          </div>
+
+          <div class="gifts-carousel__bar">
+            <p class="gifts-carousel__count" data-gifts-count aria-hidden="true">01 / 07</p>
+            <div class="gifts-carousel__nav">
+              <button type="button" data-gifts-prev aria-label="Proyecto anterior">←</button>
+              <button type="button" data-gifts-next aria-label="Proyecto siguiente">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- REVIEWS -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+      <header class="section__head">
+        <p class="label" data-reveal><span>03</span> Reviews</p>
+        <h2 class="section__title" id="reviews-title" data-split>
+          Se dice <em data-cursor>de mííí</em>
+        </h2>
+        <p class="reviews__intro" data-reveal>
+          Cuatro voces, un mismo cajón. Pasa el cursor por las pestañas, haz clic
+          o usa las flechas ← → para sacar cada ficha.
+        </p>
+      </header>
+
+      <review-drawer class="reviews__drawer" data-reveal>
+        <noscript>
+          <p class="reviews__fallback">Activa JavaScript para hojear las reseñas.</p>
+        </noscript>
+      </review-drawer>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto" aria-labelledby="contact-title">
+      <span class="contact__glow contact__glow--a" aria-hidden="true"></span>
+      <span class="contact__glow contact__glow--b" aria-hidden="true"></span>
+      <span class="contact__glow contact__glow--c" aria-hidden="true"></span>
+      <span class="contact__glow contact__glow--d" aria-hidden="true"></span>
+
+      <div class="contact__inner">
+        <p class="label label--light" data-reveal><span>04</span> ¡Hablemos!</p>
+
+        <p class="contact__kicker" data-reveal>
+          ¿Tienes un proyecto, una práctica o simplemente ganas de conversar?
+        </p>
+
+        <h2 class="contact__title" id="contact-title">
+          <a class="contact__mail" href="mailto:cgpantoja02@gmail.com" data-cursor="escribir" data-reveal data-split>
+            cgpantoja02@gmail.com
+          </a>
+        </h2>
+
+        <div class="contact__row">
+          <p class="contact__note" data-reveal>
+            Respondo en menos de 48 horas.<br>
+            Bogotá D.C · <time id="clock">--:--</time> hora local
+          </p>
+
+          <ul class="socials" data-reveal>
+            <li><a href="https://www.linkedin.com/in/carolina-gutierrez-pantoja-044b6629b/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Carolina Gutiérrez Pantoja">LinkedIn <span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </div>
+
+        <footer class="footer">
+          <span>© <span id="year">2026</span> Caro Creativa</span>
+          <span class="footer__mid">Diseñado y programado con cariño</span>
+          <a href="#inicio">volver arriba ↑</a>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Red de seguridad: si el JS principal fallara, muestra todo el contenido. -->
+  <script>
+    window.setTimeout(function () {
+      if (document.documentElement.classList.contains('app-ready') || window.__caroIntro) return;
+      document.documentElement.classList.remove('js');
+      var stage = document.getElementById('star-stage');
+      if (stage) stage.remove();
+      document.body.classList.remove('is-loading', 'menu-open');
+    }, 6000);
+  </script>
+
+</body>
+</html>
